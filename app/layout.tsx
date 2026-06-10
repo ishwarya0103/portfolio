@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Ishwarya Anandakrishnan | AI/ML Engineer",
-  description: "MS CS @ NC State | GenAI · RAG · MLOps · LLMs — Open to full-time roles",
+  description: "MS CS @ NC State · GenAI · RAG · MLOps · Open to full-time roles",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
