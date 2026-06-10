@@ -1,110 +1,93 @@
 import Navbar from "../components/Navbar";
 
-const SKILLS = {
-  "Languages": ["Python", "TypeScript", "Java", "SQL", "C++", "Bash"],
-  "GenAI & LLMs": ["LangChain", "LangGraph", "LlamaIndex", "OpenAI GPT-4", "RAG", "PEFT/LoRA", "Hugging Face", "RAGAS", "FAISS", "Qdrant", "MongoDB Atlas"],
-  "ML & Deep Learning": ["PyTorch", "TensorFlow", "Scikit-learn", "CNNs", "Transformers", "Flash Attention", "Reinforcement Learning", "Conformal Prediction", "MC Dropout", "XGBoost", "spaCy"],
-  "Infrastructure & MLOps": ["Docker", "Kubernetes (HPA)", "AWS", "GCP", "MLflow", "Airflow", "Prometheus", "Grafana", "CI/CD", "FastAPI", "MongoDB", "PostgreSQL"],
+const SKILLS: Record<string, string[]> = {
+  "Languages": ["Python","TypeScript","Java","SQL","C++","Bash"],
+  "GenAI & LLMs": ["LangChain","LangGraph","LlamaIndex","OpenAI GPT-4","RAG","PEFT/LoRA","Hugging Face","RAGAS","FAISS","Qdrant","MongoDB Atlas"],
+  "ML & Deep Learning": ["PyTorch","TensorFlow","Scikit-learn","CNNs","Transformers","Flash Attention","Reinforcement Learning","Conformal Prediction","MC Dropout","XGBoost","spaCy"],
+  "Infrastructure & MLOps": ["Docker","Kubernetes","AWS","GCP","MLflow","Airflow","Prometheus","Grafana","CI/CD","FastAPI","MongoDB","PostgreSQL"],
 };
 
-const CERTS = [
-  "Getting Started with Deep Learning — NVIDIA",
-  "Generative AI in Healthcare — LinkedIn Learning",
-];
+const card: React.CSSProperties = { background:"#111", border:"1px solid #1f1f1f", borderRadius:"14px", padding:"24px" };
 
 export default function About() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-14">
-        <div className="max-w-5xl mx-auto px-6 py-16">
+      <main style={{minHeight:"100vh", paddingTop:"56px", background:"#0a0a0a"}}>
+        <div style={{maxWidth:"860px", margin:"0 auto", padding:"60px 32px 80px"}}>
 
-          {/* Intro */}
-          <div className="mb-16">
-            <p className="text-xs text-[#888] uppercase tracking-widest mb-3 font-medium">About me</p>
-            <h1 className="text-4xl font-bold text-white mb-6">Background & Skills</h1>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-[#111111] border border-[#2a2a2a] rounded-xl p-6">
-                <h3 className="text-white font-semibold mb-3">Who I am</h3>
-                <p className="text-[#888] text-sm leading-relaxed">
-                  I&apos;m an AI/ML Engineer with 2+ years of experience building production-grade GenAI systems,
-                  RAG pipelines, and scalable ML infrastructure. Currently completing my MS in Computer Science
-                  at NC State (May 2026, GPA 3.7/4.0), graduating with hands-on experience across the full ML stack.
-                </p>
-              </div>
-              <div className="bg-[#111111] border border-[#2a2a2a] rounded-xl p-6">
-                <h3 className="text-white font-semibold mb-3">What I&apos;m looking for</h3>
-                <p className="text-[#888] text-sm leading-relaxed">
-                  Actively seeking <span className="text-[#60a5fa]">full-time roles</span> in AI/ML Engineering, GenAI, MLOps, or ML Infrastructure.
-                  Available from May 2026 (or earlier for the right opportunity). Open to relocation anywhere in the US.
-                </p>
-              </div>
+          <p style={{fontSize:"11px",color:"#888",letterSpacing:"0.12em",textTransform:"uppercase",fontWeight:500,marginBottom:"12px"}}>About</p>
+          <h1 style={{fontSize:"clamp(28px,5vw,48px)",fontWeight:700,color:"#fff",marginBottom:"40px",letterSpacing:"-0.5px"}}>Background & Skills</h1>
+
+          {/* Intro cards */}
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:"16px",marginBottom:"40px"}}>
+            <div style={card}>
+              <h3 style={{fontSize:"15px",fontWeight:600,color:"#fff",marginBottom:"12px"}}>Who I am</h3>
+              <p style={{fontSize:"14px",color:"#888",lineHeight:1.75}}>
+                AI/ML Engineer with 2+ years building production GenAI systems, RAG pipelines, and ML infrastructure.
+                MS in Computer Science @ NC State (May 2026, GPA 3.7/4.0), B.Tech CSE from NIT Trichy (GPA 8.5/10).
+              </p>
+            </div>
+            <div style={card}>
+              <h3 style={{fontSize:"15px",fontWeight:600,color:"#fff",marginBottom:"12px"}}>What I&apos;m looking for</h3>
+              <p style={{fontSize:"14px",color:"#888",lineHeight:1.75}}>
+                Seeking <span style={{color:"#60a5fa"}}>full-time roles</span> in AI/ML Engineering, GenAI, MLOps, or ML Infrastructure.
+                Available from May 2026 (or earlier). Open to relocation anywhere in the US.
+              </p>
             </div>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
-            {[
-              { n: "2+", l: "Years experience" },
-              { n: "8B+", l: "Records processed" },
-              { n: "50+", l: "Researchers served" },
-              { n: "3.7", l: "GPA @ NC State" },
-            ].map(({ n, l }) => (
-              <div key={l} className="bg-[#111111] border border-[#2a2a2a] rounded-xl p-4 text-center">
-                <div className="text-2xl font-bold text-[#3b82f6]">{n}</div>
-                <div className="text-xs text-[#888] mt-1">{l}</div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"12px",marginBottom:"48px"}}>
+            {[["2+","Years exp"],["8B+","Records"],["50+","Researchers"],["3.7","GPA"]].map(([n,l])=>(
+              <div key={l} style={{...card, textAlign:"center" as const, padding:"20px 12px"}}>
+                <div style={{fontSize:"24px",fontWeight:700,color:"#3b82f6"}}>{n}</div>
+                <div style={{fontSize:"12px",color:"#888",marginTop:"4px"}}>{l}</div>
               </div>
             ))}
           </div>
 
           {/* Skills */}
-          <div className="mb-16">
-            <p className="text-xs text-[#888] uppercase tracking-widest mb-6 font-medium">Technical Skills</p>
-            <div className="space-y-5">
-              {Object.entries(SKILLS).map(([cat, tags]) => (
-                <div key={cat} className="bg-[#111111] border border-[#2a2a2a] rounded-xl p-5">
-                  <h3 className="text-white text-sm font-semibold mb-3">{cat}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {tags.map(t => (
-                      <span key={t} className="text-xs border border-[#2a2a2a] text-[#888] px-3 py-1 rounded-full hover:border-[#3b82f6]/40 hover:text-[#60a5fa] transition-colors">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+          <p style={{fontSize:"11px",color:"#888",letterSpacing:"0.12em",textTransform:"uppercase",fontWeight:500,marginBottom:"20px"}}>Technical Skills</p>
+          <div style={{display:"flex",flexDirection:"column",gap:"14px",marginBottom:"48px"}}>
+            {Object.entries(SKILLS).map(([cat, tags]) => (
+              <div key={cat} style={card}>
+                <h3 style={{fontSize:"14px",fontWeight:600,color:"#fff",marginBottom:"14px"}}>{cat}</h3>
+                <div style={{display:"flex",flexWrap:"wrap",gap:"8px"}}>
+                  {tags.map(t => (
+                    <span key={t} style={{fontSize:"13px",color:"#888",border:"1px solid #222",borderRadius:"20px",padding:"4px 12px"}}>
+                      {t}
+                    </span>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
           {/* Certifications */}
-          <div className="mb-16">
-            <p className="text-xs text-[#888] uppercase tracking-widest mb-6 font-medium">Certifications</p>
-            <div className="space-y-3">
-              {CERTS.map(c => (
-                <div key={c} className="bg-[#111111] border border-[#2a2a2a] rounded-xl px-5 py-3 flex items-center gap-3">
-                  <span className="text-[#3b82f6]">🏅</span>
-                  <span className="text-sm text-[#888]">{c}</span>
-                </div>
-              ))}
-            </div>
+          <p style={{fontSize:"11px",color:"#888",letterSpacing:"0.12em",textTransform:"uppercase",fontWeight:500,marginBottom:"20px"}}>Certifications</p>
+          <div style={{display:"flex",flexDirection:"column",gap:"10px",marginBottom:"48px"}}>
+            {["Getting Started with Deep Learning — NVIDIA","Generative AI in Healthcare — LinkedIn Learning"].map(c=>(
+              <div key={c} style={{...card, padding:"16px 20px", display:"flex", alignItems:"center", gap:"12px"}}>
+                <span>🏅</span>
+                <span style={{fontSize:"14px",color:"#888"}}>{c}</span>
+              </div>
+            ))}
           </div>
 
           {/* Contact */}
-          <div className="bg-[#111111] border border-[#2a2a2a] rounded-xl p-6">
-            <h3 className="text-white font-semibold mb-4">Get in touch</h3>
-            <div className="flex flex-wrap gap-4">
-              <a href="mailto:ishwaryaanandakrishnan@gmail.com"
-                className="text-sm text-[#60a5fa] hover:underline">
-                ishwaryaanandakrishnan@gmail.com
-              </a>
-              <a href="https://www.linkedin.com/in/ishwarya-anand/" target="_blank"
-                className="text-sm text-[#60a5fa] hover:underline">
-                linkedin.com/in/ishwarya-anand
-              </a>
-              <a href="https://github.com/ishwarya0103" target="_blank"
-                className="text-sm text-[#60a5fa] hover:underline">
-                github.com/ishwarya0103
-              </a>
+          <div style={card}>
+            <h3 style={{fontSize:"15px",fontWeight:600,color:"#fff",marginBottom:"16px"}}>Get in touch</h3>
+            <div style={{display:"flex",flexWrap:"wrap",gap:"16px"}}>
+              {[
+                {label:"ishwaryaanandakrishnan@gmail.com", href:"mailto:ishwaryaanandakrishnan@gmail.com"},
+                {label:"linkedin.com/in/ishwarya-anand", href:"https://www.linkedin.com/in/ishwarya-anand/"},
+                {label:"github.com/ishwarya0103", href:"https://github.com/ishwarya0103"},
+              ].map(l=>(
+                <a key={l.href} href={l.href} target="_blank" style={{fontSize:"14px",color:"#60a5fa",textDecoration:"none"}}>
+                  {l.label}
+                </a>
+              ))}
             </div>
           </div>
 

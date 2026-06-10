@@ -12,19 +12,32 @@ const links = [
 export default function Navbar() {
   const path = usePathname();
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#2a2a2a] bg-[#0a0a0a]/90 backdrop-blur-md">
-      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        <Link href="/" className="text-sm font-semibold text-white hover:text-[#60a5fa] transition-colors">
+    <nav style={{
+      position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
+      borderBottom: "1px solid #1f1f1f",
+      background: "rgba(10,10,10,0.92)",
+      backdropFilter: "blur(12px)",
+      height: "56px",
+      display: "flex", alignItems: "center",
+    }}>
+      <div style={{
+        maxWidth: "960px", margin: "0 auto", padding: "0 24px",
+        width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+      }}>
+        <Link href="/" style={{ fontSize: "15px", fontWeight: 600, color: "#fff", textDecoration: "none" }}>
           Ishwarya A.
         </Link>
-        <div className="flex items-center gap-1">
+        <div style={{ display: "flex", gap: "4px" }}>
           {links.map(l => (
-            <Link key={l.href} href={l.href}
-              className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
-                path === l.href
-                  ? "text-white bg-[#1a1a1a]"
-                  : "text-[#888] hover:text-white"
-              }`}>
+            <Link key={l.href} href={l.href} style={{
+              padding: "6px 14px",
+              borderRadius: "8px",
+              fontSize: "14px",
+              textDecoration: "none",
+              color: path === l.href ? "#fff" : "#888",
+              background: path === l.href ? "#1a1a1a" : "transparent",
+              transition: "all 0.15s",
+            }}>
               {l.label}
             </Link>
           ))}
