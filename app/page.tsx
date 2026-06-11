@@ -123,7 +123,7 @@ export default function Home() {
 
           {/* Buttons */}
           <div style={s.btnRow}>
-            <a href="/Ishwarya_Resume.pdf" download style={s.btnPrimary}><DownloadIcon /> Download Resume</a>
+            <a href="/Ishwarya_Resume.pdf" target="_blank" rel="noreferrer" style={s.btnPrimary}><DownloadIcon /> Download Resume</a>
             <Link href="/chat" style={s.btnSecondary}>💬 Ask me anything</Link>
             <a href="https://github.com/ishwarya0103" target="_blank" style={s.btnIcon}><GithubIcon /></a>
             <a href="https://www.linkedin.com/in/ishwarya-anand/" target="_blank" style={s.btnIcon}><LinkedinIcon /></a>
