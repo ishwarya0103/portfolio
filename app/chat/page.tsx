@@ -67,7 +67,11 @@ export default function Chat() {
                     borderBottomRightRadius: m.role==="user" ? "4px" : "14px",
                     borderBottomLeftRadius: m.role==="assistant" ? "4px" : "14px",
                   }}>
-                    {m.content}
+                    {m.content.split('\n').map((line, i) => (
+  <span key={i} style={{display:'block', marginBottom: line.startsWith('•') || line.startsWith('-') ? '4px' : '2px'}}>
+    {line.replace(/\*\*(.*?)\*\*/g, '$1')}
+  </span>
+))}
                   </div>
                 </div>
               ))}
