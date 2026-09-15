@@ -2,9 +2,10 @@ import Navbar from "../components/Navbar";
 
 const SKILLS: Record<string, string[]> = {
   "Languages": ["Python","TypeScript","Java","SQL","C++","Bash"],
-  "GenAI & LLMs": ["LangChain","LangGraph","LlamaIndex","OpenAI GPT-4","RAG","PEFT/LoRA","Hugging Face","RAGAS","FAISS","Qdrant","MongoDB Atlas"],
-  "ML & Deep Learning": ["PyTorch","TensorFlow","Scikit-learn","CNNs","Transformers","Flash Attention","Reinforcement Learning","Conformal Prediction","MC Dropout","XGBoost","spaCy"],
-  "Infrastructure & MLOps": ["Docker","Kubernetes","AWS","GCP","MLflow","Airflow","Prometheus","Grafana","CI/CD","FastAPI","MongoDB","PostgreSQL"],
+  "GenAI & LLMs": ["LangChain","LangGraph","LlamaIndex","OpenAI GPT-4","Ollama","RAG","RAGAS","Prompt Engineering","Vector Search","PEFT/LoRA","QLoRA","Hugging Face","FAISS","Qdrant","MongoDB Atlas"],
+  "ML & Deep Learning": ["PyTorch","TensorFlow","Scikit-learn","XGBoost","CNNs","Transformers","Flash Attention","Reinforcement Learning (DQN)","Time-Series ML","Conformal Prediction","MC Dropout","spaCy","Pandas","NumPy"],
+  "Infrastructure & MLOps": ["Docker","Kubernetes","AWS","GCP","Terraform","Ansible","MLflow","Airflow","Prometheus","Grafana","CI/CD","FastAPI","MongoDB","PostgreSQL"],
+  "Developer Tools": ["Git","GitHub","ELK Stack"],
 };
 
 const card: React.CSSProperties = { background:"#111", border:"1px solid #1f1f1f", borderRadius:"14px", padding:"24px" };
@@ -24,22 +25,22 @@ export default function About() {
             <div style={card}>
               <h3 style={{fontSize:"15px",fontWeight:600,color:"#fff",marginBottom:"12px"}}>Who I am</h3>
               <p style={{fontSize:"14px",color:"#888",lineHeight:1.75}}>
-                AI/ML Engineer with 2+ years building production GenAI systems, RAG pipelines, and ML infrastructure.
-                MS in Computer Science @ NC State (May 2026, GPA 3.7/4.0), B.Tech CSE from NIT Trichy (GPA 8.5/10).
+                AI/ML Engineer with 3+ years building production GenAI systems, RAG pipelines, and ML infrastructure.
+                MS in Computer Science from NC State (2026, GPA 3.7/4.0), B.Tech CSE from NIT Trichy (GPA 8.5/10).
               </p>
             </div>
             <div style={card}>
-              <h3 style={{fontSize:"15px",fontWeight:600,color:"#fff",marginBottom:"12px"}}>What I&apos;m looking for</h3>
+              <h3 style={{fontSize:"15px",fontWeight:600,color:"#fff",marginBottom:"12px"}}>What I&apos;m working on</h3>
               <p style={{fontSize:"14px",color:"#888",lineHeight:1.75}}>
-                Seeking <span style={{color:"#60a5fa"}}>full-time roles</span> in AI/ML Engineering, GenAI, MLOps, or ML Infrastructure.
-                Available from May 2026 (or earlier). Open to relocation anywhere in the US.
+                Currently an <span style={{color:"#60a5fa"}}>AI/ML Engineer at Cloud Pharmaceuticals</span>, building GenAI platforms
+                that fuse clinical, genomic, and physiological data. Always open to interesting conversations in AI/ML and MLOps.
               </p>
             </div>
           </div>
 
           {/* Stats */}
           <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"12px",marginBottom:"48px"}}>
-            {[["2+","Years exp"],["8B+","Records"],["50+","Researchers"],["3.7","GPA"]].map(([n,l])=>(
+            {[["3+","Years exp"],["8B+","Records"],["50+","Researchers"],["3.7","GPA"]].map(([n,l])=>(
               <div key={l} style={{...card, textAlign:"center" as const, padding:"20px 12px"}}>
                 <div style={{fontSize:"24px",fontWeight:700,color:"#3b82f6"}}>{n}</div>
                 <div style={{fontSize:"12px",color:"#888",marginTop:"4px"}}>{l}</div>
@@ -67,7 +68,13 @@ export default function About() {
           {/* Certifications */}
           <p style={{fontSize:"11px",color:"#888",letterSpacing:"0.12em",textTransform:"uppercase",fontWeight:500,marginBottom:"20px"}}>Certifications</p>
           <div style={{display:"flex",flexDirection:"column",gap:"10px",marginBottom:"48px"}}>
-            {["Getting Started with Deep Learning — NVIDIA","Generative AI in Healthcare — LinkedIn Learning"].map(c=>(
+            {[
+              "Deep Learning — NVIDIA",
+              "Generative AI Explained — NVIDIA",
+              "AI Fluency & Foundations — Anthropic",
+              "Claude 101 — Anthropic",
+              "Generative AI in Healthcare — LinkedIn Learning",
+            ].map(c=>(
               <div key={c} style={{...card, padding:"16px 20px", display:"flex", alignItems:"center", gap:"12px"}}>
                 <span>🏅</span>
                 <span style={{fontSize:"14px",color:"#888"}}>{c}</span>
